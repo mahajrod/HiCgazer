@@ -1,0 +1,11 @@
+#---- Bioconda config ----
+name: avavpipe
+channels:
+  - bioconda
+  - conda-forge
+dependencies:
+  - bwa=0.7.17
+  - lastz
+  - parallel
+  - numpy
+  - java-jdk=>8

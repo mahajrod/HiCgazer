@@ -1,0 +1,23 @@
+#---- Directory structure config ----
+sample_dir: "samples"
+out_dir: "results"
+fastqc_dir: "fastqc"
+filtered_read_dir: "reads/filtered"
+kmer_dir: "kmer"
+alignment_dir: "alignment"
+snpcall_dir: "snpcall"
+joint_snpcall_dir: "joint_snpcall"
+log_dir: "logs"
+cluster_log_dir: "cluster_logs"
+error_dir: "errors"
+benchmark_dir: "benchmarks"
+conda_config: "workflow/envs/conda.yaml"
+known_variants_dir: "resources/known_variants"
+#---- Tool threads ----
+faidx_threads: 1
+#---- Tool memory ----
+faidx_mem_mb: 1000
+#---- Tool time ----
+faidx_time: "00:30:00"
+#---- Tool variables ----
+
