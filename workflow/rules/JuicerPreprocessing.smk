@@ -95,7 +95,7 @@ rule juicer:
     resources:
         cpus=config["juicer_threads"],
         time=config["juicer_time"],
-        mem=config["juicers_mem_mb"],
+        mem=config["juicer_mem_mb"],
         partition=config["juicer_partition"] if config["juicer_partition"] else config["default_partition"]
     threads:
         config["juicer_threads"]

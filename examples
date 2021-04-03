@@ -1,0 +1,1 @@
+snakemake --profile profile/slurm/ --configfile config/default.yaml --config draft_dir= fastq_dir= --use-conda --printshellcmds --latency-wait 60
