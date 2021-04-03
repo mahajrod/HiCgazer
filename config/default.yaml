@@ -1,23 +1,32 @@
 #---- Directory structure config ----
-sample_dir: "samples"
+draft_dir: "drafts"
+fastq_dir: "fastq"
 out_dir: "results"
-fastqc_dir: "fastqc"
-filtered_read_dir: "reads/filtered"
-kmer_dir: "kmer"
-alignment_dir: "alignment"
-snpcall_dir: "snpcall"
-joint_snpcall_dir: "joint_snpcall"
 log_dir: "logs"
 cluster_log_dir: "cluster_logs"
 error_dir: "errors"
 benchmark_dir: "benchmarks"
 conda_config: "workflow/envs/conda.yaml"
-known_variants_dir: "resources/known_variants"
 #---- Tool threads ----
+bwa_index_threads: 1
 faidx_threads: 1
+restriction_sites_threads: 1
+juicer_threads: 60
 #---- Tool memory ----
-faidx_mem_mb: 1000
+bwa_index_mem_mb: 10000
+faidx_mem_mb: 5000
+restriction_sites_mem_mb: 5000
+juicer_mem_mb: 50000
 #---- Tool time ----
+bwa_index_time: "05:00:00"
 faidx_time: "00:30:00"
+restriction_sites_time: "12:00:00"
+juicer_time: "100:00:00"
+#---- Tool partition ----
+default_partition: "common"
+bwa_index_partition: ""
+faidx_partition: ""
+restriction_sites_partition: ""
+juicer_partition: ""
 #---- Tool variables ----
-
+restrictase: "MboI"

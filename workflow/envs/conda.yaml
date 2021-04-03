@@ -9,3 +9,4 @@ dependencies:
   - parallel
   - numpy
   - java-jdk=>8
+  - samtools
