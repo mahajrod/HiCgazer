@@ -100,7 +100,7 @@ rule juicer:
     threads:
         config["juicer_threads"]
     shell:
-         "ln {input.fastq_dir} {params.species_fastq_dir}; juicer.sh -q {resources.partition}  -Q {resources.time} -L {resources.time} "
+         "ln -s {input.fastq_dir} {params.species_fastq_dir}; juicer.sh -q {resources.partition}  -Q {resources.time} -L {resources.time} "
          " -t {threads} -g {wildcards.species}"
          " -d {params.species_dir} –g {params.output_prefix} "
          " –s {params.restrictase} –z {input.draft} –y {input.restriction_sites} "
