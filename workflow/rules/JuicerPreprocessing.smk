@@ -51,7 +51,7 @@ rule restriction_sites:
         out_dir_path / ("{species}/{species}_%s.txt" % config["restrictase"])
     params:
         restrictase=config["restrictase"],
-        output_prefix=out_dir_path / "{species}/{species}"
+        output_prefix=species_output_prefix_from_wildcards # out_dir_path / "{species}/{species}"
     log:
         std=log_dir_path / "{species}/restriction_sites.log",
         cluster_log=cluster_log_dir_path / "{species}.restriction_sites.cluster.log",
@@ -81,9 +81,9 @@ rule juicer:
         chr_path=out_dir_path / "{species}/{species}.chr"
     params:
         restrictase=config["restrictase"],
-        output_prefix=out_dir_path / "{species}/{species}",
-        species_dir=out_dir_path / "{species}",
-        species_fastq_dir=out_dir_path / "{species}/fastq"
+        output_prefix=species_output_prefix_from_wildcards , #out_dir_path / "{species}/{species}",
+        species_dir=species_dir_from_wildcards, #out_dir_path / "{species}",
+        species_fastq_dir=species_fastq_dir_from_wildcards #out_dir_path / "{species}/fastq"
     log:
         std=log_dir_path / "{species}/juicer.log",
         cluster_log=cluster_log_dir_path / "{species}.juicer.cluster.log",
