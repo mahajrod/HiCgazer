@@ -12,6 +12,16 @@ cluster_log_dir_path = Path(config["cluster_log_dir"])
 if "species_list" not in config:
     config["species_list"] = [d.name for d in draft_dir_path.iterdir() if d.is_dir()]
 
+def species_output_prefix_from_wildcards(wildcards):
+    return out_dir_path / "{species}/{species}".format(species=wildcards.species)
+
+def species_dir_from_wildcards(wildcards):
+    return out_dir_path / "{species}".format(species=wildcards.species)
+
+def species_fastq_dir_from_wildcards(wildcards):
+    return out_dir_path / "{species}/fastq".format(species=wildcards.species)
+
+
 localrules: all
 
 rule all:
