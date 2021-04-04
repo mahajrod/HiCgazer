@@ -40,7 +40,7 @@ rule ref_faidx:
         mem=config["faidx_mem_mb"],
         partition=config["faidx_partition"] if config["faidx_partition"] else config["default_partition"]
     threads:
-        config["faidx_threads"]даже на питоне, н
+        config["faidx_threads"]
     shell:
          "samtools faidx {input} > {log.std} 2>&1"
 
