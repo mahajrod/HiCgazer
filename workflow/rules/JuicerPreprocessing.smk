@@ -68,7 +68,7 @@ rule restriction_sites:
     threads:
         config["restriction_sites_threads"]
     shell:
-         "generate_site_positions.py {params.restrictase} {params.output_prefix} {input}> {log.std} 2>&1"
+         "workflow/scripts/generate_site_positions.py {params.restrictase} {params.output_prefix} {input}> {log.std} 2>&1"
 
 rule juicer:
     input:
