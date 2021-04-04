@@ -100,8 +100,9 @@ rule juicer:
     threads:
         config["juicer_threads"]
     shell:
-         "ln -s {input.fastq_dir} {params.species_fastq_dir}; juicer.sh -q {resources.partition}  -Q {resources.time} -L {resources.time} "
+         "ln -s {input.fastq_dir} {params.species_fastq_dir}; "
+         " juicer.sh -q {resources.partition} -l {resources.partition}  -Q {resources.time} -L {resources.time} "
          " -t {threads} -g {wildcards.species}"
-         " -d {params.species_dir} –g {params.output_prefix} "
-         " –s {params.restrictase} –z {input.draft} –y {input.restriction_sites} "
-         " –p {output.chr_path} > {log.std} 2>&1"
+         " -d {params.species_dir} -g {params.output_prefix} "
+         " -s {params.restrictase} -z {input.draft} -y {input.restriction_sites} "
+         " -p {output.chr_path} > {log.std} 2>&1"
