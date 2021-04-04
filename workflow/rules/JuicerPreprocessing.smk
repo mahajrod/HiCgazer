@@ -75,7 +75,6 @@ rule juicer:
         draft=draft_dir_path / "{species}/{species}.draft.fasta",
         draft_index=rules.bwa_index.output,
         restriction_sites=rules.restriction_sites.output,
-        species_dir=directory(draft_dir_path / "{species}"),
         fastq_dir=(fastq_dir_path / "{species}").absolute()
     output:
         merged=out_dir_path / "{species}/merged_nodups.txt",
@@ -83,7 +82,8 @@ rule juicer:
     params:
         restrictase=config["restrictase"],
         output_prefix=out_dir_path / "{species}/{species}",
-        species_fastq_dir= out_dir_path / "{species}/fastq"
+        species_dir=out_dir_path / "{species}",
+        species_fastq_dir=out_dir_path / "{species}/fastq"
     log:
         std=log_dir_path / "{species}/juicer.log",
         cluster_log=cluster_log_dir_path / "{species}.juicer.cluster.log",
@@ -102,6 +102,6 @@ rule juicer:
     shell:
          "ln {input.fastq_dir} {params.species_fastq_dir}; juicer.sh -q {resources.partition}  -Q {resources.time} -L {resources.time} "
          " -t {threads} -g {wildcards.species}"
-         " -d {input.species_dir} –g {params.output_prefix} "
+         " -d {params.species_dir} –g {params.output_prefix} "
          " –s {params.restrictase} –z {input.draft} –y {input.restriction_sites} "
          " –p {output.chr_path} > {log.std} 2>&1"
