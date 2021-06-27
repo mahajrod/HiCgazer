@@ -31,5 +31,6 @@ bwa_index_partition: ""
 faidx_partition: ""
 restriction_sites_partition: ""
 juicer_partition: ""
+bwa_partition: ""
 #---- Tool variables ----
 restrictase: "MboI"
