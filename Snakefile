@@ -31,5 +31,6 @@ rule all:
         expand(out_dir_path / ("{species}/{species}_%s.txt" % config["restrictase"]), species=config["species_list"]),
         expand(out_dir_path / "{species}/merged_nodups.txt", species=config["species_list"])
 
+include: "workflow/rules/Indexing.smk"
 include: "workflow/rules/JuicerPreprocessing.smk"
 
