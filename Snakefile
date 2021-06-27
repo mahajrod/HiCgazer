@@ -33,6 +33,11 @@ ligation_site_dict = OrderedDict( {"HindIII": "AAGCTAGCTT",
 
 localrules: all
 
+include: "workflow/rules/Indexing.smk"
+include: "workflow/rules/JuicerPreprocessing.smk"
+include: "workflow/rules/BWA.smk"
+
+
 rule all:
     input:
         expand(draft_dir_path / "{species}/{species}.draft.fasta.bwt", species=config["species_list"]),
@@ -41,6 +46,3 @@ rule all:
         expand(out_dir_path / "{species}/merged_nodups.txt", species=config["species_list"]),
         rules.bwa.output
 
-include: "workflow/rules/Indexing.smk"
-include: "workflow/rules/JuicerPreprocessing.smk"
-include: "workflow/rules/BWA.smk"
