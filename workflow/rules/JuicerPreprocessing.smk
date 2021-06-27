@@ -68,7 +68,7 @@ rule restriction_sites:
     threads:
         config["restriction_sites_threads"]
     shell:
-         "workflow/scripts/generate_site_positions.py {params.restrictase} {params.output_prefix} {input}> {log.std} 2>&1"
+         "workflow/scripts/generate_site_positions.py {params.restrictase} {params.output_prefix} {input} > {log.std} 2>&1"
 
 rule juicer:
     input:
@@ -106,3 +106,7 @@ rule juicer:
          " -d {params.species_dir} -g {params.output_prefix} "
          " -s {params.restrictase} -z {input.draft} -y {input.restriction_sites} "
          " -p {output.chr_path} > {log.std} 2>&1"
+
+
+#bwa mem -SP5M $threadstring $refSeq $name1$ext $name2$ext > $name$ext.sam
+

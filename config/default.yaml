@@ -11,14 +11,14 @@ conda_config: "workflow/envs/conda.yaml"
 bwa_index_threads: 1
 faidx_threads: 1
 restriction_sites_threads: 1
-juicer_threads: 60
+juicer_threads: 32
 #---- Tool memory ----
 bwa_index_mem_mb: 10000
 faidx_mem_mb: 5000
 restriction_sites_mem_mb: 5000
 juicer_mem_mb: 50000
 #---- Tool time ----
-bwa_index_time: "05:00:00"
+bwa_index_time: "12:00:00"
 faidx_time: "00:30:00"
 restriction_sites_time: "12:00:00"
 juicer_time: "100:00:00"
