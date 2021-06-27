@@ -63,5 +63,5 @@ rule juicer:
          " -p {output.chr_path} > {log.std} 2>&1"
 
 
-#bwa mem -SP5M $threadstring $refSeq $name1$ext $name2$ext > $name$ext.sam
+
 
